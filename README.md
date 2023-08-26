@@ -2,32 +2,41 @@
 This repository contains the data and code files used for the manuscript "Identifying cues for self-organised nest wall building behaviour in the rock ant, _Temnothorax rugatulus_, using hidden Markov models", by Invernizzi E., Michelot T., Popov, V., Ng N., Macqueen E., Rouviere A., Webster, M. and Sasaki, T. (in preparation).
 
 
-## Code authorship   
+## Files 
 ### Agent-based model (ABM)  
-_rug_run_sims.py_   (**Edith Invernizzi**)   
+_rug_run_sims.py_ 
 python script running ABM simulations and collecting output statistics
    
-_rug_wall_funcs.py_   (**Edith Invernizzi**)   
+_rug_wall_funcs.py_ 
 python script containing code base for wall-building ABM 
 
-### Statistical analysis
+_SA.py_
+python script containing sensitivity analysis
 
-_HMM_functions_for_model_fitting.R_   (**Valentin Popov**)  
-The heart of the HMM coding work. Contains the functions that are used for fitting an HMM. The following functions can be found in this file:   
-* pn2pw - transforms normal parameters into working parameters. Among other things it has the argument diff that allows for flexibility in terms of keeping the parameters of the covariates constant across colonies. The case diff=TRUE was never tested in a fitting procedure
-* pw2pn - transforms working parameters into normal parameters
-* get_allprobs - for given parameters and data, calculates the probabilities/pdfs of the observations for each state. There is a scope for improvement (more elegant coding) but it works fine.
-* mllk - calculates the negative log likelihood. Note that the function calls an external function forward written in C++ to speed up the calculations.
-* mle - a wrapper function to fit the model. Essential does the optimisation using nlm and presents the output in understandable way    
+_rug - pars and statistics.csv_
+containins the circular spread values from the sensitivity analysis
 
-_Global decoding using Viterbi algorithm.R_   (**Valentin Popov**)   
-R script with global decoding functions   
 
-_Simulated samples.R_   (**Valentin Popov**)   
-R script with function to generate samples from model. In the file there are some tests based on the model using a quadratic function of stone density for covariates
+### HMM analysis
 
-_Evaluating models_ms.rmd_   (**Edith Invernizzi**)   
-R markdown script that renders a walkthrough (in pdf format) of how the four statisticals models were compared and evaluated   
+_1_model_selection.R_
+R code used to build, fit and compare (through AIC) the statistical models)
+
+_2_state_dependent_distr.R_
+R code used to build Figure 5B
+
+_3_mean_deposition_vs_stone_dens.R_
+R code used to build Figure 6
+
+_4_HMM_1_state.R_
+R code used to fit the 1-state models
+
+_5_predicted_state_sequence.R_
+R code used to build Appendix Figure 4
+
+_6_rates_over_time.R_
+R code used to build Figure 4
+
 
 
 ## Data
